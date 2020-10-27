@@ -20,6 +20,7 @@ namespace KBeavin.Api.Controllers
             test.Add(new Test { Name = "Sheila", FavNumber = 7, Date = new DateTime(1976, 7, 8) });
             test.Add(new Test { Name = "Ashley", FavNumber = 14, Date = new DateTime(2002, 7, 3) });
             test.Add(new Test { Name = "Carter", FavNumber = 1, Date = new DateTime(2016, 3, 1) });
+            test.Add(new Test { Name = "Moe", FavNumber = 12, Date = new DateTime(2009, 10, 27) });
 
             //var rng = new Random();
             //return Enumerable.Range(1, 5).Select(index => new Test
