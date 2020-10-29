@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using KBeavin.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,11 @@ namespace KBeavin.Api.Controllers
 
             try
             {
-                test.Add(new Test { Name = "Kyle", FavNumber = 3, Date = new DateTime(1986, 4, 11) });
-                test.Add(new Test { Name = "Sheila", FavNumber = 7, Date = new DateTime(1976, 7, 8) });
-                test.Add(new Test { Name = "Ashley", FavNumber = 14, Date = new DateTime(2002, 7, 3) });
-                test.Add(new Test { Name = "Carter", FavNumber = 1, Date = new DateTime(2016, 3, 1) });
-                test.Add(new Test { Name = "Moe", FavNumber = 12, Date = new DateTime(2009, 10, 27) });
+                test.Add(new Test { Name = "Kyle", FavNumber = 3, Birthday = new DateTime(1986, 4, 11) });
+                test.Add(new Test { Name = "Sheila", FavNumber = 7, Birthday = new DateTime(1976, 7, 8) });
+                test.Add(new Test { Name = "Ashley", FavNumber = 14, Birthday = new DateTime(2002, 7, 3) });
+                test.Add(new Test { Name = "Carter", FavNumber = 1, Birthday = new DateTime(2016, 3, 1) });
+                test.Add(new Test { Name = "Moe", FavNumber = 12, Birthday = new DateTime(2009, 10, 27) });
             }
             catch (Exception ex)
             {
@@ -38,7 +39,7 @@ namespace KBeavin.Api.Controllers
         {
             try
             {
-                Test test = new Test { Name = "Kyle", FavNumber = 3, Date = new DateTime(1986, 4, 11) };
+                Test test = new Test { Name = "Kyle", FavNumber = 3, Birthday = new DateTime(1986, 4, 11) };
                 return test;
             }
             catch (Exception ex)
