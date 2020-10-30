@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using KBeavin.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using KBeavin.Data.Repository;
 
 namespace KBeavin.Api
 {
@@ -27,7 +28,8 @@ namespace KBeavin.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TestContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("KBeavinApi")));
+            services.AddDbContext<TestContext>(options => options.UseSqlServer(Configuration.GetConnectionString("KBeavinApi")));
+            services.AddScoped<ITestRepository, TestRepository>();
             services.AddControllers();
         }
 

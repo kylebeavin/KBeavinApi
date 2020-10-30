@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using KBeavin.Data.Models;
+using KBeavin.Data.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,13 @@ namespace KBeavin.Api.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
+        private ITestRepository _context;
+
+        public TestController(ITestRepository context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public IEnumerable<Test> Get()
         {
@@ -35,11 +43,13 @@ namespace KBeavin.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public Test Get(int id)
+        public async Task<Test> Get(long id)
         {
             try
             {
-                Test test = new Test { Name = "Kyle", FavNumber = 3, Birthday = new DateTime(1986, 4, 11) };
+                //Test test = _context.GetTestById(id);
+                Test test = await _context.GetByIdAsync(id);
+
                 return test;
             }
             catch (Exception ex)
