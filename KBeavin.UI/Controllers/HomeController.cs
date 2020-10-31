@@ -27,7 +27,8 @@ namespace KBeavin.UI.Controllers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    using (var response = await httpClient.GetAsync("https://localhost:44331/api/Test"))
+                    //using (var response = await httpClient.GetAsync("https://localhost:44331/api/Test"))
+                    using (var response = await httpClient.GetAsync("https://kbeavinapi.azurewebsites.net/api/Test"))
                     {
                         string apiResponse = await response.Content.ReadAsStringAsync();
                         test = JsonConvert.DeserializeObject<List<Test>>(apiResponse);
